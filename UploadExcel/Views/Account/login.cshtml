@@ -1,4 +1,4 @@
-﻿@using UploadExcel.Models.ViewModels
+﻿@using Domain.Dtos
 @model LoginViewModel
 @{
     ViewData["Title"] = "تسجيل دخول";
@@ -35,7 +35,7 @@
         position: relative;
         width: 100%;
         height: 100%;
-        padding-top:25pc;
+        padding-top:10pc;
     }
 
     label {
@@ -141,10 +141,20 @@
 
 
             </div>
+            <div class="d-flex align-items-center justify-content-between mt-4">
+
+                <button asp-action="Register" asp-controller="Account" type="submit" class=" btn btn-primary btn-sm float-end bg-gradient-primary">Sign Up</button>
 
 
+            </div>
+
+      @*       <div class="d-flex align-items-center justify-content-between mt-4">
+                <p>Don't have an account?</p>
+                <a asp-action="Register" asp-controller="Account" class=" btn btn-primary btn-sm float-end bg-gradient-primary"></a>
+            </div> *@
 
         </form>
+     
     </div>
 
 

@@ -17,6 +17,10 @@ namespace UploadExcel.Controllers
 
         public IActionResult Index()
         {
+            var message = TempData["Message"] as string;
+
+            // Pass the message to the view (you can also use ViewBag or ViewData if needed)
+            ViewBag.Message = message;
             return View();
         }
 

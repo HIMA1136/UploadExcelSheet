@@ -1,0 +1,73 @@
+﻿@model List<Domain.Entitiess.Invoice>
+
+@{
+    ViewData["Title"] = "Invoices";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+@if (Model != null && Model.Any())
+{
+    <table class="styled-table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Invoice Number</th>
+                <th>تاريخ الفاتوره</th>
+                <th>Customer Name</th>
+                <th>Currency</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var invoice in Model)
+            {
+                <tr>
+                    <td>@invoice.Id</td>
+                    <td>@invoice.No</td>
+                    <td>@invoice.InvoiceDate.ToString("yyyy-MM-dd")</td>
+                    <td>@invoice.CustmerName</td>
+                    <td>@invoice.CurencyNo</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <p>No invoices available.</p>
+}
+
+<style>
+    /* General table styles */
+    .styled-table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 16px;
+        font-family: Arial, sans-serif;
+        margin-top: 20px;
+    }
+
+        /* Header styles */
+        .styled-table thead tr {
+            background-color: #0056b3; /* Blue background */
+            color: #ffffff; /* White text */
+            text-align: left;
+        }
+
+        /* Cell and border styles */
+        .styled-table th, .styled-table td {
+            padding: 10px 15px;
+            border: 1px solid #dddddd;
+            text-align: center; /* Center text */
+        }
+
+        /* Row striping styles */
+        .styled-table tbody tr:nth-child(even) {
+            background-color: #f3f3f3; /* Light gray for alternate rows */
+        }
+
+        /* Hover effect */
+        .styled-table tbody tr:hover {
+            background-color: #d1e7fd; /* Light blue on hover */
+        }
+</style>

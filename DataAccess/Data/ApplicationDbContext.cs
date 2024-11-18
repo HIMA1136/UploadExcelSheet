@@ -1,8 +1,8 @@
-﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+﻿using Domain.Entitiess;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
-using UploadExcel.Models.Entities;
 
-namespace UploadExcel.Data
+namespace DataAccess.Data
 {
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
@@ -16,5 +16,8 @@ namespace UploadExcel.Data
         //    base.OnModelCreating(modelBuilder);
         //}
         public DbSet<EmployeeS> Employees { get; set; }
+        public DbSet<Invoice> Invoice { get; set; }
+        public DbSet<Customer> Customer { get; set; }
+        public DbSet<Curency> Curency { get; set; }
     }
 }

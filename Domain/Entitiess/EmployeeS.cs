@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
 
-namespace UploadExcel.Models.Entities
+namespace Domain.Entitiess
 {
     public class EmployeeS
     {

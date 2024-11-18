@@ -1,8 +1,8 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using DataAccess.Data;
+using Domain.Dtos;
+using Domain.Entitiess;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using UploadExcel.Data;
-using UploadExcel.Models.Entities;
-using UploadExcel.Models.ViewModels;
 
 namespace UploadExcel.Controllers
 {

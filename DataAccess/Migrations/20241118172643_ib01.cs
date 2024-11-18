@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
-namespace UploadExcel.Migrations
+namespace DataAccess.Migrations
 {
     /// <inheritdoc />
     public partial class ib01 : Migration

@@ -1,7 +1,8 @@
+using DataAccess.Data;
+using Domain.Entitiess;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
-using UploadExcel.Data;
-using UploadExcel.Models.Entities;
+using Application;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
@@ -17,9 +18,11 @@ builder.Services.AddIdentity<ApplicationUser, IdentityRole>(options =>
     options.Password.RequiredLength = 6;
 }).AddEntityFrameworkStores<ApplicationDbContext>()
    .AddDefaultTokenProviders();
+
 // Add services to the container.
 builder.Services.AddControllersWithViews();
-
+builder.Services.AddServicesLifeTime();
+builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

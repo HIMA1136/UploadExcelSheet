@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Identity;
 
-namespace UploadExcel.Models.Entities
+namespace Domain.Entitiess
 {
     public class ApplicationUser : IdentityUser
     {

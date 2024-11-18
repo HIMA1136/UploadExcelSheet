@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace UploadExcel.Models.ViewModels
+namespace Domain.Dtos
 {
     public class LoginViewModel
     {

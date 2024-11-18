@@ -44,17 +44,17 @@
         var token = "";
         var url1 = url;
 
-        token = localStorage.getItem('AccessToken').toString();
+/*        token = localStorage.getItem('AccessToken').toString();*/
         
-        if (url != "/Auth/User/Login") { }
-        /* url1 = "/Auth/User/Login/" + token;*/
-        if (url.includes('?')) {
-            url1 = `${url}&Token=${token}`;
-        }
-        else {
-            if (url !="/Auth/User/Login")
-            url1 = `${url}?Token=${token}`;
-        }
+        //if (url != "/Auth/User/Login") { }
+        ///* url1 = "/Auth/User/Login/" + token;*/
+        //if (url.includes('?')) {
+        //    url1 = `${url}&Token=${token}`;
+        //}
+        //else {
+        //    if (url !="/Auth/User/Login")
+        //    url1 = `${url}?Token=${token}`;
+        //}
         try {
             const response = await $.ajax({
                 type: "POST",
@@ -429,7 +429,8 @@
 
     // Export button functionality (placeholder)
     document.getElementById('export-btn').addEventListener('click', () => {
-        const headers = Array.from(tableHeaders.children).map(th => th.textContent);  // Get the headers from the table
+        const headers = Array.from(tableHeaders.children).map(th => th.textContent.trim().replace(/\s+/g, ''));  // Remove leading/trailing spaces and internal spaces
+
         const rows = Array.from(tableBody.children);  // Get the rows from the table body
 
         const exportData = rows.map(row => {
@@ -438,7 +439,7 @@
 
             cells.forEach((cell, index) => {
                 // Map header name to cell value
-                rowData[headers[index]] = cell.textContent.trim();
+                rowData[headers[index].trim()] = cell.textContent.trim();
             });
 
             return rowData;  // Return the row object
@@ -446,10 +447,15 @@
 
         // Log the data or process the array for export (e.g., as JSON)
         console.log(exportData);
+        var model = exportData
+
+        window.sendToServer("/Upload/UploadFile", model, callback());
 
     });
 
-
+    function callback(){
+        alert("تم الحفظ بنجاح")
+    }
 
     // Add "Total Value before Taxing" column based on the formula (Total Value After Taxing / (1 + Tax Rate))
     // Add "Total Value before Taxing" column and calculate "Total Value After Taxing" sum
@@ -505,6 +511,12 @@
     }
 
 
+    document.addEventListener('DOMContentLoaded', function () {
+        var dropdownElements = document.querySelectorAll('.dropdown-toggle');
+        dropdownElements.forEach(function (dropdown) {
+            new bootstrap.Dropdown(dropdown);
+        });
+    });
 
 
 

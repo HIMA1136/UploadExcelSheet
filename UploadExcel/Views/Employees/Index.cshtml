@@ -1,0 +1,86 @@
+﻿@using UploadExcel.Models.ViewModels
+@model AddEmployeeMOdel
+@{
+    ViewData["Title"] = "ادارة  القضاه";
+}
+<link href="~/thems/assets/css/apps/ecommerce.css" rel="stylesheet" type="text/css" />
+<div id="createDiv" class="">
+
+    <div class="col-lg-12 layout-spacing">
+        <div class="statbox widget box box-shadow mb-4">
+            <div class="widget-header">
+                <div class="row">
+                    <div class="col-xl-12 col-md-12 col-sm-12 col-12">
+                        <h4>ادارة  القضاه </h4>
+                    </div>
+                </div>
+            </div>
+            <div class="widget-content widget-content-area">
+                <form asp-action="SaveEmployee" asp-controller="Employees" method="post">
+                    <div class="w-100">
+                        <div class="form-group row">
+                            <div class="col-lg-6" hidden>
+                                <label asp-for="Id"> :</label>
+                                <input asp-for="Id" class="form-control" placeholder="">
+                                <span asp-validation-for="Id" class="text-muted"></span>
+                            </div>
+                            <div class="col-lg-6">
+                                <label asp-for="FullName">اسم القاضى :</label>
+                                <input asp-for="FullName" class="form-control" placeholder="ادخل اسم القاضى كامل">
+                                <span asp-validation-for="FullName" class="text-muted"></span>
+                            </div>
+                            <div class="col-lg-6">
+                                <label asp-for="CurrentDegree">الدرجة الحالية</label>
+                                <input asp-for="CurrentDegree" class="form-control" placeholder="الدرجة الحالية ">
+                                <span asp-validation-for="CurrentDegree" class="text-muted"></span>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-lg-6">
+                                <label asp-for="PhoneNumber">رقم الجوال1 :</label>
+                                <div class="input-group">
+                                    <input asp-for="PhoneNumber" class="form-control" placeholder="رقم الجوال">
+                                    <div class="input-group-append">
+                                        <span class="input-group-text">
+                                            <i class="la la-map-marker"></i>
+                                        </span>
+                                    </div>
+                                </div>
+                                <span asp-validation-for="PhoneNumber" class="text-muted"></span>
+                            </div>
+                            <div class="col-lg-6">
+                                <label asp-for="PhoneNumber2">رقم الجوال2:</label>
+                                <div class="input-group">
+                                    <input asp-for="PhoneNumber2" class="form-control" placeholder="ادخل رقم الجوال2">
+                                    <div class="input-group-append">
+                                        <span class="input-group-text">
+                                            <i class="la la-bookmark-o"></i>
+                                        </span>
+                                    </div>
+                                </div>
+                                <span asp-validation-for="PhoneNumber2" class="text-muted"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="widget-footer text-right">
+                        <button type="submit" class="btn btn-primary mr-2">حفظ</button>
+                        <button type="reset" asp-action="Main" asp-controller="Employees" class="btn btn-outline-primary">اللغاء</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="tableDiv">
+    @{
+
+    }
+
+
+
+</div>
+
+
+@section Scripts {
+    <script src="~/js/hr/employeemanagement.js"></script>
+}

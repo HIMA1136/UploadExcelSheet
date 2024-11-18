@@ -1,0 +1,18 @@
+﻿@using UploadExcel.Models.Entities
+@using UploadExcel.Models.Entities
+@model List<EmployeeS>
+
+@foreach (var employee in Model)
+{
+    <tr>
+        <td>@employee.Id</td>
+        <td>@employee.FullName</td>
+        <td>@employee.CurrentDegree</td>
+        <td>@employee.PhoneNumber</td>
+        <td>@employee.PhoneNumber2</td>
+        <td>
+            <a asp-action="Edit" asp-controller="Employees" asp-route-Id="@employee.Id" class="btn btn-info">تعديل</a>
+            <a asp-action="Delete" asp-controller="Employees" asp-route-Id="@employee.Id" class="btn btn-danger">حذف</a>
+        </td>
+    </tr>
+}

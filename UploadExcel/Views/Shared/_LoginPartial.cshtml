@@ -1,0 +1,24 @@
+﻿@using UploadExcel.Models.Entities
+@using Microsoft.AspNetCore.Identity
+@inject SignInManager<ApplicationUser> signInManger
+<ul class="navbar-nav">
+    @if (signInManger.IsSignedIn(User))
+    {
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="" id="NavBarDropDown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                @User.Identity!.Name!
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="NavBarDropDown">
+                <li>
+                    <a class="dropdown-item" asp-action="LogOut" asp-controller="Account">
+                        تسجيل خروج
+                    </a>
+                </li>
+
+            </ul>
+        </li>
+    }
+
+
+
+</ul>
